@@ -74,12 +74,14 @@ async def catalog(interaction):
         if i-1 % 4 == 0:
             curret = curret[:len(curret)-1]
             curret += "\n"
-        if len(curret) > 1950:
+        if len(curret) > 1900:
             rets.append(curret)
             curret = ""
+    rets.append(curret)
     # print(rets)
     await interaction.response.send_message("Here's a list of passwords: \n")
     for ret in rets:
+        print(ret)
         await interaction.followup.send(ret)
     return
 
